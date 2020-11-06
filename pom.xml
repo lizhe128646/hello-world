@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>mario-test-parent</artifactId>
+        <groupId>com.meituan.toolchain.mario</groupId>
+        <version>1.0.2</version>
+    </parent>
+    <groupId>com.meituan.cscqa.pacific.knowledge.test</groupId>
+    <artifactId>pacific-knowledge-test</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <properties>
+        <xml.file>src/test/apiTest.xml</xml.file>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <argLine>-Dfile.encoding=UTF-8</argLine>
+        <testreportsDirectory>${basedir}/src/test/reports</testreportsDirectory>
+    </properties>
+
+    <dependencies>
+
+        <!--运营技术中心工具包-->
+        <dependency>
+            <groupId>mt.reservation.util</groupId>
+            <artifactId>mt.reservation.util</artifactId>
+            <version>1.2.6.9</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!--知识库-->
+        <dependency>
+            <groupId>com.dianping</groupId>
+            <artifactId>csc-pacific-knowledge-api</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.meituan.service.deal</groupId>
+            <artifactId>jmonitor-ext</artifactId>
+            <version>1.7.2-SNAPSHOT</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-mock</artifactId>
+            <version>2.0.8</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sankuai.it.sso</groupId>
+            <artifactId>sso-java-sdk</artifactId>
+            <version>2.2.5</version>
+        </dependency>
+        <dependency>
+            <groupId>com.meituan.csc.cratos</groupId>
+            <artifactId>csc-cratos-api</artifactId>
+            <version>1.0.10</version>
+        </dependency>
+
+
+    </dependencies>
+
+    <profiles>
+        <profile>
+            <id>preonline</id>
+            <activation>
+            </activation>
+            <build>
+                <resources>
+                    <resource>
+                        <directory>src/test/profiles/preonline</directory>
+                    </resource>
+                </resources>
+            </build>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <activation>
+            </activation>
+            <build>
+                <resources>
+                    <resource>
+                        <directory>src/test/profiles/prod</directory>
+                    </resource>
+                </resources>
+            </build>
+        </profile>
+        <profile>
+            <id>test</id>
+            <activation>
+            </activation>
+            <build>
+                <resources>
+                    <resource>
+                        <directory>src/test/profiles/test</directory>
+                    </resource>
+                </resources>
+            </build>
+        </profile>
+        <profile>
+            <id>mock</id>
+            <activation>
+            </activation>
+            <build>
+                <resources>
+                    <resource>
+                        <directory>src/test/profiles/mock</directory>
+                    </resource>
+                </resources>
+            </build>
+        </profile>
+    </profiles>
+
+</project>
